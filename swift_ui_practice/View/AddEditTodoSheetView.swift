@@ -47,7 +47,13 @@ struct AddEditTodoView: View {
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(title.isEmpty ? Color.gray : Color.blue)
+                        .background(
+                            title.isEmpty
+                                ? AnyShapeStyle(.gray)
+                                : AnyShapeStyle(
+                                    .tint
+                                )
+                        )
                         .foregroundColor(.white)
                         .cornerRadius(14)
                 }
@@ -78,21 +84,18 @@ struct AddEditTodoView: View {
             if let todo = existingItem {
                 todo.title = title
                 todo.todDesc = description
-                
+
                 todoListViewModel.edit(todo)
             } else {
                 let todo = TodoModel(
                     title: title,
                     todDesc: description,
                 )
-                
+
                 todoListViewModel.add(todo)
             }
         }
-        
+
         dismiss()
     }
 }
-
-
-

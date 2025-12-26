@@ -4,12 +4,14 @@ import SwiftUI
 
 @MainActor
 struct TodoListView: View {
+    @AppStorage("theme") var theme: Theme = .light
     @Environment(TodoListViewModel.self) var todoListViewModel
     @State private var isSheetShowing = false
     @State private var editingItem: TodoModel?
 
     var body: some View {
         @Bindable var todoListViewModel = todoListViewModel
+
         NavigationStack {
             ZStack {
 
@@ -33,7 +35,7 @@ struct TodoListView: View {
                         .font(.system(size: 24))
                         .foregroundStyle(.white)
                         .frame(width: 60, height: 60)
-                        .background(Color.blue)
+                        .background(.tint)
                         .clipShape(Circle())
 
                 }.frame(
@@ -50,6 +52,20 @@ struct TodoListView: View {
             )
             .navigationTitle("Todo List")
             .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                Button {
+
+                    theme.toggle()
+
+                } label: {
+                    Image(
+                        systemName: theme == .dark
+                            ? "moon.circle.fill" : "sun.max.circle.fill"
+                    )
+                    .symbolRenderingMode(.hierarchical)
+                    .font(.title2)
+                }
+            }
         }
         .sheet(
             item: $editingItem,
@@ -68,6 +84,7 @@ struct TodoListView: View {
                 existingItem: nil
             )
         }
+        .preferredColorScheme(theme.colorScheme)
     }
 
     func toggleDone(_ item: TodoModel) {

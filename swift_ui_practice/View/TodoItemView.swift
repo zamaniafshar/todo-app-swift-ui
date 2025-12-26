@@ -42,9 +42,9 @@ struct TodoItemView: View {
         }
 
         .padding()
-        .background(.white)
+        .background(.background)
         .cornerRadius(15)
-        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
+        .shadow(color: .primary.opacity(0.1), radius: 5, x: 0, y: 5)
         .padding(.vertical, 10)
         .padding(.horizontal, 20)
         .onTapGesture {

@@ -5,7 +5,9 @@ A simple and clean todo application built with SwiftUI and MVVM architecture. Th
 
 ## Preview
 
-https://github.com/zamaniafshar/todo-app-swift-ui/blob/29fbc4e444f385d9d48f92fa3e4557267f6d6163/preview.mp4
+https://github.com/user-attachments/assets/f23e61c7-8465-49a5-b11f-e8eac5f6e651
+
+
 
 
 
@@ -67,4 +69,5 @@ https://github.com/zamaniafshar/todo-app-swift-ui/blob/29fbc4e444f385d9d48f92fa3
 - **Sorting & filtering** – Show only completed / active tasks
 - **Theming** – Light/Dark theme customizations
 - **Animations** – Smooth transitions for adding/removing items
+
 
